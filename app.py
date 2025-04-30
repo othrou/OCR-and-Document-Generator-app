@@ -73,10 +73,10 @@ with st.sidebar:
                         img_bytes = uploaded_file.getvalue()
 
                         # Prepare the prompt for OCR
-                        ocr_prompt = """Analyze the text in the provided image. Extract all readable content
-                                        and present it in a structured Markdown format that is clear, concise,
-                                        and well-organized. Ensure proper formatting (e.g., headings, lists, or
-                                        code blocks) as necessary to represent the content effectively."""
+                        ocr_prompt = """Analyze the text in the provided image and extract all readable content *exactly as it appears*. 
+                        Return the text in a structured Markdown format, preserving the original language (e.g., French), layout, and intent. 
+                        Use headings, lists, tables, or code blocks as needed to reflect the source’s organization. 
+                                        """
 
                         response = ollama.chat(
                             model='gemma3:4b', # Make sure this model supports vision
